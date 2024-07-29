@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Find all .ly files and process them with lilypond
-find . -type f -name "*.ly" -exec lilypond -dno-point-and-click "{}" \;
+find . -type f -name "*.ly" -exec lilypond -dno-point-and-click -dembed-source-code -dpaper-size=\"a4\" "{}" \;

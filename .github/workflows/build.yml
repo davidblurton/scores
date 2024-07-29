@@ -17,7 +17,7 @@ jobs:
         env:
             LANG: 'C.UTF-8'
         with:
-          args: lilypond -dno-point-and-click -dembed-source-code -dpaper-size=\"a4\" -o build *.ly
+          args: ./build
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
