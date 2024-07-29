@@ -10,14 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-      - name: Build PDF
-        uses: docker://jeandeaual/lilypond:2.24.3
-        env:
-            LANG: 'C.UTF-8'
+      - uses: actions/checkout@v4
+      - uses: codello/setup-lilypond@main
         with:
-          args: ./build
+          lilypond-version: 2.24
+      - name: Compile scores
+        run: ./build
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
