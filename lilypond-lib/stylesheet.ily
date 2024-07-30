@@ -15,10 +15,10 @@
     \sans \column {
       \fill-line { \fromproperty #'header:dedication }
       \override #'(baseline-skip . 3.5)
+      \override #'(font-name . "C059")
       \column {
         \fill-line { 
           \fontsize #10
-          \override #'(font-name . "C059")
           \fromproperty #'header:title }
         \fill-line { \large \fromproperty #'header:subtitle }
         \fill-line {
