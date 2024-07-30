@@ -73,30 +73,31 @@ PartVoiceMelodyChords = \chords {
   e2 fis4:m7 a4/+b \bar "|."
 }
 
-\book {
-  \bookOutputSuffix "E"
-  \header {
-      key = "E"
-  }
-  \score {
-    <<
-      \context ChordNames = "PartVoiceMelodyChords" { \PartVoiceMelodyChords}
-      \context Voice = "PartVoiceMelody" { \PartVoiceMelody }
-      \new Lyrics \lyricsto "PartVoiceMelody" { \PartVoiceMelodyLyrics }
-    >>
-  }  
+Score = <<
+  \context ChordNames = "PartVoiceMelodyChords" { \PartVoiceMelodyChords}
+  \context Voice = "PartVoiceMelody" { \PartVoiceMelody }
+  \new Lyrics \lyricsto "PartVoiceMelody" { \PartVoiceMelodyLyrics }
+>>
+
+\header {
+  key = "E"
 }
+
+\bookOutputSuffix "E"
+
+\score {
+  \Score
+}  
 
 \book {
   \bookOutputSuffix "F"
   \header {
-      key = "F"
+    key = "F"
   }
+  
   \score {
-    <<
-      \context ChordNames = "PartVoiceMelodyChords" { \transpose e f { \PartVoiceMelodyChords} }
-      \context Voice = "PartVoiceMelody" { \transpose e f {  \PartVoiceMelody } }
-      \new Lyrics \lyricsto "PartVoiceMelody" { \PartVoiceMelodyLyrics }
-    >>
+    \transpose e f {
+      \Score
+    }
   }  
 }
