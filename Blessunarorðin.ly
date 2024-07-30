@@ -5,6 +5,7 @@
   title =  "Blessunarorðin"
   subtitle = "The Lord bless you and keep you"
   tagline =  ""
+  arranger = "úts. Óskar Einarsson"
 }
 
 keyTime = { \time 4/4 \key bes \major }
