@@ -13,7 +13,7 @@
   bookTitleMarkup = \markup {
     \override #'(baseline-skip . 3.5)
     
-    \sans \column {
+    \roman \column {
       \fill-line { \fromproperty #'header:dedication }
       \override #'(baseline-skip . 3.5)
       \override #'(font-name . "C059")
