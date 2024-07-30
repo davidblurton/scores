@@ -12,15 +12,17 @@
   score-system-spacing.basic-distance  = #30
   bookTitleMarkup = \markup {
     \override #'(baseline-skip . 3.5)
+    
     \sans \column {
       \fill-line { \fromproperty #'header:dedication }
       \override #'(baseline-skip . 3.5)
       \override #'(font-name . "C059")
+      
       \column {
         \fill-line { 
           \fontsize #10
           \fromproperty #'header:title }
-        \fill-line { \large \fromproperty #'header:subtitle }
+        \fill-line { \lower #.5 \large \fromproperty #'header:subtitle }
         \fill-line {
           \raise #1 \smaller
           \fromproperty #'header:subsubtitle
@@ -38,3 +40,4 @@
     }
   }
 }
+
