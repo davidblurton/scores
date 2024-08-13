@@ -24,7 +24,7 @@
 
 <<
   \chords {
-    s1 | g:maj7 | s1 | g:m7 | c:7 |
+    s2. | g1:maj7 | s1 | g:m7 | c:7 |
     f:maj7 | s1 | f:m7 | bes:7 |
     ees:maj7 | a2:m7.5- d:7 | g1:m | a2:m7.5- d:7 |
     g1:maj7 | a2:m7 d:7 | b:m7 bes:7 | a:m7 d:7
@@ -35,7 +35,7 @@
     \key g \major
 
     % Starts 6:22 https://www.youtube.com/watch?v=0stw0U6ujBA
-    r4-"6:22" d4 g a |
+    \partial 2. d4-"6:22" g a |
     a4. b8~ b2 |
     r8 d,8 cis d g4 a8 bes~ |
     bes8 c a aes g f d dis |
@@ -51,9 +51,9 @@
     d c a ais b r8 r4 |
     r8 f' e d \tuplet 3/2 {c16 d c} b8 gis e |
     a8 b c d e b' ais b |
-    \tuplet 3/2 { a16 b a } g8 e f fis e c cis |
+    \tuplet 3/2 { a16 b a } g8 e f fis e c cis | \break
     d c a ais b g e d |
-    a' fis g d r2 | r1-"anyway..."
+    a' fis g d r2 -"anyway..."
     \fine |
   }
 >>
