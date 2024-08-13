@@ -40,7 +40,7 @@
     a4. b8~ b2 |
     r8 d,8 cis d g4 a8 bes~ |
     bes8 c a aes g f d dis |
-    e cis bes b c bes g gis |
+    e des bes b c bes g gis |
     a f \tuplet 3/2 { d des c } g' e f c |
     c8 c8~ c4 r2 |
     r8 f \tuplet 3/2 { aes c ees } c8 d ees c |
