@@ -13,7 +13,6 @@
 
 \paper {
   markup-system-spacing.basic-distance = #25
-  system-system-spacing.basic-distance = #18
 }
 
 \header {
