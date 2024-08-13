@@ -1,26 +1,19 @@
 \version "2.24.3"
 \include "./lilypond-lib/lilypond-lib.ily"
 
-\layout {
-  \context {
-    \Staff
-    \consists "Horizontal_bracket_engraver"
-    \override HorizontalBracket.direction = #DOWN
-    \override HorizontalBracket.Y-offset = #-6
-    \override HorizontalBracket.bracket-flare = #'(0 . 0)
-  }
-  ragged-last = ##t
-}
-
-\paper {
-  markup-system-spacing.basic-distance = #25
-}
-
 \header {
   title = "How High the Moon"
   subtitle = "Solo by Chris Parks"
   tagline = "Things I've Learned from Barry Harris Episode 14"
   composer = "Transcribed by David Blurton"
+}
+
+\layout {
+  ragged-last = ##t
+}
+
+\paper {
+  markup-system-spacing.basic-distance = #25
 }
 
 <<
@@ -45,7 +38,7 @@
     c8 c8~ c4 r2 |
     r8 f \tuplet 3/2 { aes c ees } c8 d ees c |
     d f aes c aes4 bes8 aes | \break
-    \acciaccatura fis g4 bes r8 c, ees bes' |
+    \acciaccatura fis! g4 bes r8 c, ees bes' |
     a g fis ees d c a c |
     bes g r4 d8 e g bes |
     d,8 e g bes fis a c ees |
