@@ -9,6 +9,7 @@
     \override HorizontalBracket.Y-offset = #-6
     \override HorizontalBracket.bracket-flare = #'(0 . 0)
   }
+  ragged-last = ##t
 }
 
 \paper {
@@ -27,7 +28,7 @@
     s2. | g1:maj7 | s1 | g:m7 | c:7 |
     f:maj7 | s1 | f:m7 | bes:7 |
     ees:maj7 | a2:m7.5- d:7 | g1:m | a2:m7.5- d:7 |
-    g1:maj7 | a2:m7 d:7 | b:m7 bes:7 | a:m7 d:7
+    g1:maj7 | b2:m7.5- e:7 | b:m7 bes:7 | a:m7 d:7
     g1:maj7 | s1
   }
   \new Staff \relative c'' {
@@ -53,7 +54,7 @@
     a8 b c d e b' ais b |
     \tuplet 3/2 { a16 b a } g8 e f fis e c cis | \break
     d c a ais b g e d |
-    a' fis g d r2 -"anyway..."
+    a' fis g d r2 | r1 -"anyway..."
     \fine |
   }
 >>
