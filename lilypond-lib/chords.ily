@@ -1,8 +1,8 @@
 hiFl   = \markup { \hspace #.1 \raise #.4 \fontsize #-1.2 \flat }
 hiSh   = \markup { \hspace #.1 \raise #.6 \fontsize #-1.2 \sharp }
-slash  = \markup { \hspace #.1 "/" \hspace #.1 }
+slash  = \markup { \hspace #.2 "/" \hspace #.2 }
 majSeven = \markup { "maj7" }
-minorChord = \markup { "m" \hspace #-.2 }
+minorChord = \markup { \hspace #.1 "m" \hspace #-.2 }
 
 chExceptionMusic = {
   <c es ges>       -\markup { \whiteCircleMarkup }
@@ -25,7 +25,8 @@ chExceptions =
         (make-line-markup
           (list
             (make-fontsize-markup -1
-              (make-text-markup "♭"))))
+              (make-raise-markup 0.40
+                (make-text-markup "♭")))))
       (if (= alt DOUBLE-SHARP)
         (make-line-markup
           (list
@@ -41,7 +42,8 @@ chExceptions =
       (make-line-markup
         (list
           (make-fontsize-markup -1
-            (make-text-markup "♯"))))))))))))
+            (make-raise-markup 0.40
+              (make-text-markup "♯")))))))))))))
 
 \layout {
   \override VerticalAxisGroup.nonstaff-relatedstaff-spacing = #'(

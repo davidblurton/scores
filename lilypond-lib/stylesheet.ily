@@ -30,7 +30,7 @@
       \column {
         \overlay {
           \fill-line {
-            \fontsize #9
+            \fontsize #7
             \fromproperty #'header:title
           }
         }

@@ -45,7 +45,7 @@
     d c a ais b r8 r4 |
     r8 f' e d \tuplet 3/2 {c16 d c} b8 gis e |
     a8 b c d e b' ais b |
-    \tuplet 3/2 { a16 b a } g8 e f fis e c cis | \break
+    \tuplet 3/2 { a16 b a } g8 e eis fis e c cis | \break
     d c a ais b g e d |
     a' fis g d r2 | r1 -"anyway..."
     \fine |
