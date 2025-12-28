@@ -1,5 +1,6 @@
 \version "2.24.3"
 \include "./lilypond-lib/lilypond-lib.ily"
+\pointAndClickOff
 
 \header {
   title =  "Mary Did You Know"
@@ -25,7 +26,7 @@ PartVoiceMelody = \new Voice \with {
   
   \section
   \sectionLabel "Intro"
-  b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
+  b4-"ac. guitar only" b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
   b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b2\fermata | 
   
   
@@ -43,16 +44,16 @@ PartVoiceMelody = \new Voice \with {
   b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
   
   b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
-  b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 r4 r2 | 
+  b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b1 | 
   
   \section
   \sectionLabel "Instrumental"
   b4-"band in" b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
-  b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
+  b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4\< b4 b4 b4 | 
   
   \section
   \sectionLabel "Bridge"
-  b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
+  b4\! b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | 
   b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b4 b4 b4 b4 | b1~\> | b1 | 
    
   \section
@@ -62,7 +63,6 @@ PartVoiceMelody = \new Voice \with {
   
   b4 b4 b4 b4 | b4 b4 b4 b4 | b4-"rit." b4 b4 b4 | b1\fermata | 
   b1 | b1 | b1 | b1 |
-  
   
   \section
   \sectionLabel "Outro"
@@ -122,8 +122,6 @@ Score = <<
   \context ChordNames = "PartVoiceMelodyChords" { \PartVoiceMelodyChords}
   \context Voice = "PartVoiceMelody" { \PartVoiceMelody  }
 >>
-
-\bookOutputSuffix "F"
 
 \score {
   \Score

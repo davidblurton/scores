@@ -118,8 +118,6 @@ Score = <<
   
 }
 
-\bookOutputSuffix "E"
-
 \score {
   \Score
 }
