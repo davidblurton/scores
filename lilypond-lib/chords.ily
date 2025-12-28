@@ -64,7 +64,7 @@
 %	degrés 			markup				% écriture
 JazzChordsList = {
 % minor third chords - 3 notes
-  <c es ges>1-\markup { \super "°" } % :dim
+  <c es ges>1-\markup { \super \concat { \hspace #0.2 "°" } } % :dim
   <c es g>-\markup { \acMin #"" } % :m
 
 % minor third chords - 4 notes
@@ -132,8 +132,8 @@ JazzChordsList = {
   <c e g bes des' a' >-\markup { \super "13(>9)" } % :13.9-
 
 % sustained chords
-  <c d g>-\markup { \super "sus2" } % :sus2
-  <c f g>-\markup { \super "sus" } % :sus4
+  <c d g>-\markup { \super "(“2)" } % :sus2
+  <c f g>-\markup { "(“4)" } % :sus4
   <c f g bes>-\markup { \super "7sus" }  % :sus4.7
   <c f g bes d'>-\markup { \super "9sus" }  % :sus4.7.9
   <c f g dis'>-\markup { \super "<9sus" }  % :sus4.9+
