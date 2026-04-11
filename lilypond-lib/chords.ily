@@ -61,6 +61,7 @@
 #(define acSharp "#")
 #(define acSixNine "%")
 #(define acAdd "'")
+#(define acDim "—")
 
 % modify the built-in "chordNameExceptions"
 %----- change chord exceptions for jazz notation -----
@@ -68,11 +69,11 @@
 %	degrés 			markup				% écriture
 JazzChordsList = {
 % minor third chords - 3 notes
-  <c es ges>1-\markup { \concat { \hspace #0.2 "°" } } % :dim
+  <c es ges>1-\markup { #acDim } % :dim
   <c es g>-\markup { \acMin #"" } % :m
 
 % minor third chords - 4 notes
-  <c es ges beses>-\markup { \concat { \lower #0.3 "°" "7" } } % :dim7
+  <c es ges beses>-\markup { #acDim "7" } % :dim7
   <c es gis>-\markup { \acMin #"aug" } % :m5+ (Ab/C)
   <c es g a>-\markup { \acMin #"6" } % :m6
   % <c es ges bes>-\markup { \acMin #"7" \raise #1 ">" "5" } % :m7.5-
@@ -83,7 +84,7 @@ JazzChordsList = {
   <c es g d'>-\markup { \acMin #(string-append acAdd "9") } % :m5.9
 
 % minor third chords - 5+ notes
-  <c es g a d'>-\markup { \acMin #"6/9" } % :m6.9
+  <c es g a d'>-\markup { \acMin \acSixNine } % :m6.9
   <c es g bes des'>-\markup { \acMin #"7(>9)" } % :m7.9-
   <c es g bes d'>-\markup { \acMin #"9" } % :m9
   <c es ges bes d'>-\markup { \acMin #"9" "(" \acFlat "5" ")" } % :m9.5-
@@ -108,7 +109,7 @@ JazzChordsList = {
   <c f g bes>-\markup { #"7" "(“4)"  } % :7
 	  
 % special chords
-  <c e g bes c'>-\markup { "7(Alt)" } % :c:8
+  <c e g bes c'>-\markup { "7(¡)" } % :c:8
   <c e g b>-\markup { \acMaj #"7" } % :maj
   <c e ges b>-\markup { \acMaj #"7" "(" \acFlat "5" ")" } % :maj.5-
   <c e gis b>-\markup { \acMaj #"7" "(" #acSharp "5" ")" } % :maj.5+
@@ -119,7 +120,7 @@ JazzChordsList = {
 
 % major third chords - 5+ notes
   <c e g b d'>-\markup { \acMaj #"9" } % :maj9
-  <c e g bes des'>-\markup { "7" \acFlat "9" } % :9-
+  <c e g bes des'>-\markup { #"7" "(" \acFlat "9" ")" } % :9-
   <c e ges bes des'>-\markup { \override #'(baseline-skip . 2) \acAlt #"7" #">9" #(string-append "¨" "5") } % :9-.5-
   <c e gis bes des'>-\markup { \override #'(baseline-skip . 2) \acAlt #"7" #">9" #(string-append acSharp "5") } % :9-.5+
   <c e g bes d' fis'>-\markup { #(string-append "9(" acSharp "11)") } % :9.11+
