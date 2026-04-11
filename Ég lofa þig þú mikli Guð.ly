@@ -1,6 +1,7 @@
 \version "2.24.3"
 \include "./lilypond-lib/lilypond-lib.ily"
 
+\pointAndClickOff
 \header {
   title =  "Ég lofa þig, þú mikli Guð"
   subtitle = "I worship you Almighty God"
@@ -97,6 +98,19 @@ Score = <<
   
   \score {
     \transpose e f {
+      \Score
+    }
+  }  
+}
+
+\book {
+  \bookOutputSuffix "D"
+  \header {
+    key = "D"
+  }
+  
+  \score {
+    \transpose e d {
       \Score
     }
   }  
