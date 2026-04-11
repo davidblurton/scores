@@ -15,7 +15,7 @@ jobs:
         with:
           lilypond-version: 2.24
       - name: Install fonts
-        run: mkdir -p ~/.fonts && cp -r ./lilypond-lib/fonts ~/.fonts/
+        run: mkdir -p ~/.local/share/fonts && cp ./lilypond-lib/fonts/* ~/.local/share/fonts/ && fc-cache -f
       - name: Compile scores
         run: make
       - name: Upload artifact
