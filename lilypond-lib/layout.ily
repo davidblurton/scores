@@ -47,4 +47,6 @@ $(if (ly:version? >= '(2 25 4))
   \override Score.RehearsalMark.break-align-symbols   = #'(left-edge)
   \override Score.RehearsalMark.padding               = #2.5
   \override Score.RehearsalMark.self-alignment-X      = #-1
+  
+  \set Staff.chordChanges = ##t
 }

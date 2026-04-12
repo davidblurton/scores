@@ -23,7 +23,6 @@
 
 <<
   \chords {
-    \set chordChanges = ##t
     f1 | g2:m7 c:7 | f1:maj7 | g2:m7 c:7 |
     f1 | f1 | e:m7 | a:7 |
     d1:m7 | g:7 | d:m7 | g:7 |

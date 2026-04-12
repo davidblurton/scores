@@ -22,6 +22,31 @@
 
 <<
   \chords {
+    g2:m7 c:7 | f1
+  }
+  
+  \new Staff \relative c'' { 
+    \time 4/4 \key f \major
+    r2 
+    
+    <<
+      {
+        \voiceOne
+        a4 gis
+      }
+      \new Voice {
+        \voiceTwo
+        <c, f>4 <cis e>
+      }
+    >>
+    
+    \oneVoice
+    | g'1
+  }
+>>
+
+<<
+  \chords {
     a1:7 | d:m7
   }
   
@@ -35,6 +60,7 @@
     <<
       {
         \voiceOne
+        \once\override NoteHead.color = red
         dis4\startGroup e\stopGroup
       }
       \new Voice {
@@ -63,7 +89,10 @@
     <<
       {
         \voiceOne
-        bes!8\startGroup b des d\stopGroup
+        \once\override NoteHead.color = red
+        bes!8\startGroup b 
+        \once\override NoteHead.color = red
+        des d\stopGroup
       }
       \new Voice {
         \voiceTwo
@@ -78,7 +107,7 @@
 
 <<
   \chords {
-    f1 | b2:m7.5- bes:m6 | a:m7
+    f1 | b2:m7.5- bes:m6 | a2:m7 d:m7
   }
   
   \new Staff \relative c'' { 
@@ -89,5 +118,17 @@
     \once\override HorizontalBracketText.text = "Movement to 3"
     a2.\startGroup    
     g4 | c2.\stopGroup c,4
+  }
+>>
+
+<<
+  \chords {
+    g2:7 c:7 | f1
+  }
+  
+  \new Staff \relative c'' { 
+    \time 4/4 \key f \major
+
+    r4 e,8 ees d4 des | c1
   }
 >>
