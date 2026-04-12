@@ -31,10 +31,14 @@
   (interpret-markup layout props
     (markup "‹" extension)))
 
+#(define-markup-command (acExt layout props extension) (markup?)
+  (interpret-markup layout props
+    (markup "(" extension ")")))
+
 % major chord "maj" superscript
 #(define-markup-command (acMaj layout props extension) (string?)
   (interpret-markup layout props
-    (markup #:raise 0.5 #:fontsize -2 "maj" extension)))
+    (markup #:raise 0.7 #:fontsize -1.2 "maj" extension)))
 
 % flat symbol with extension number
 #(define-markup-command (acFlat layout props extension) (string?)
@@ -61,56 +65,59 @@ JazzChordsList = {
   <c f g>-\markup { "(" #acSus "4)" }                                     % sus4
 
   % added tone
-  <c d>-\markup { #(string-append acAdd "2") }                    % 2
+  <c d>-\markup { #(string-append "(" acAdd "2" ")" ) }                    % 2
   <c e g a>-\markup { #"6" }                                     % 6
 
   % 7th chords
   <c e g bes>-\markup { #"7" }                                   % 7
-  <c f g bes>-\markup { "7sus" }                                 % 7sus4
+  <c f g bes>-\markup { "7" "(" #acSus "4)" }                                 % 7sus4
   <c e g b>-\markup { \acMaj #"7" }                              % maj7 (also 7+)
   <c es g bes>-\markup { \acMin #"7" }                           % m7
-  <c es ges bes>-\markup { \acMin #"7" "(" \acFlat "5" ")" }    % m7.5-
+  <c es ges bes>-\markup { \acMin #"7" \acExt { "b5" } }    % m7.5-
   <c es ges beses>-\markup { #acDim "7" }                        % dim7
 
   % 9th and extended chords
   <c e g bes d'>-\markup { #"9" }                                % 9
   <c e g b d'>-\markup { \acMaj #"9" }                           % maj9
-  <c e g bes des'>-\markup { #"7" "(" \acFlat "9" ")" }         % 7.9-
-  <c e g bes dis'>-\markup { #"7" "(" #acSharp "9" ")" }        % 7.9+
-  <c e g bes fis'>-\markup { #"7" "(" #acSharp "11" ")" }       % 7.11+
-  <c e g bes d' fis'>-\markup { #(string-append "9(" acSharp "11)") }  % 9.11+
+  <c e g bes des'>-\markup { #"7" "("  "b9" ")" }         % 7.9-
+  <c e g bes dis'>-\markup { #"7" "(" "#9" ")" }        % 7.9+
+  <c e g bes fis'>-\markup { #"7" "(" "#11" ")" }       % 7.11+
+  <c e g bes d' fis'>-\markup { #(string-append "9(" "#11)") }  % 9.11+
 }
 
-JazzChords = #(append
-  (sequential-music-to-chord-exceptions JazzChordsList #t)
-  ignatzekExceptions)
+% Build exception table with #f to preserve all entries without
+% the dominated-7th key collisions that #t causes.
+JazzChords = #(sequential-music-to-chord-exceptions JazzChordsList #f)
 
-% Strict chord naming: errors on any chord quality not in the dictionary.
-% known-intervals is derived from a root-inclusive (#f) table to avoid
-% the dominated-7th key collisions that occur with #t.
-#(define known-intervals
-  (map (lambda (exc)
-         (map ly:pitch-semitones (car exc)))
-       (sequential-music-to-chord-exceptions JazzChordsList #f)))
-
+% Chord naming function that looks up exceptions directly and errors
+% on any chord quality not in the dictionary.
 #(define (strict-chord-names pitches bass inversion context)
   (let* ((root (car pitches))
-         (semitones (map (lambda (p)
-                           (ly:pitch-semitones (ly:pitch-diff p root)))
-                         pitches)))
-    (if (member semitones known-intervals)
-        (ignatzek-chord-names pitches bass inversion context)
+         (intervals (map (lambda (p) (ly:pitch-diff p root)) pitches))
+         (match (find (lambda (exc) (equal? (car exc) intervals))
+                      JazzChords)))
+    (if match
+        (let* ((root-namer (ly:context-property context 'chordRootNamer))
+               (root-markup (root-namer root #f))
+               (quality-markup (cadr match))
+               (chord-markup (make-line-markup (list root-markup quality-markup))))
+          (if (and (ly:pitch? bass) (not (equal? bass root)))
+              (make-line-markup
+                (list chord-markup
+                      (make-simple-markup "/")
+                      (root-namer bass #f)))
+              chord-markup))
         (begin
-          (ly:error "Chord not in dictionary: ~a" semitones)
+          (ly:error "Chord not in dictionary: ~a"
+            (map (lambda (p) (ly:pitch-semitones (ly:pitch-diff p root))) pitches))
           (make-simple-markup "?")))))
 
 \layout {
   \context {
     \ChordNames
     chordRootNamer = #JazzChordNames
-    chordNameExceptions = #JazzChords
     chordNameFunction = #strict-chord-names
-    \override ChordName.font-size = #2
+    %\override ChordName.font-size = #2
     \override ChordName.font-name = #"Opus Chords Std"
   }
 }

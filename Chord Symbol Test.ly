@@ -11,41 +11,44 @@
 }
 
 \layout {
-  ragged-last = ##t
+  
+}
+
+theChords = \chordmode {
+  % triads
+  c1           % major
+  c1:m         % minor
+  c1:dim       % diminished
+  c1:sus2      % suspended 2nd
+  c1:sus4      % suspended 4th
+
+  % added tone
+  c1:2         % add 2nd
+  c1:6         % 6th
+
+  % 7th chords
+  c1:7         % dominant 7th
+  c1:7sus4     % dominant 7sus4
+  c1:maj7      % major 7th
+  c1:m7        % minor 7th
+  c1:m7.5-     % half-diminished
+  c1:dim7      % diminished 7th
+
+  % 9th and extended chords
+  c1:9         % dominant 9th
+  c1:maj9      % major 9th
+  c1:7.9-      % dominant 7 flat 9
+  c1:7.9+      % dominant 7 sharp 9
+  c1:7.11+     % dominant 7 sharp 11
+  c1:9.11+     % dominant 9 sharp 11
 }
 
 <<
-  \new ChordNames \chordmode {
-    % triads
-    c1           % major
-    c1:m         % minor
-    c1:dim       % diminished
-    c1:sus2      % suspended 2nd
-    c1:sus4      % suspended 4th
+  \new ChordNames \theChords
+  \new Staff \theChords
+>>
 
-    % added tone
-    c1:2         % add 2nd
-    c1:6         % 6th
-
-    % 7th chords
-    c1:7         % dominant 7th
-    c1:7+        % augmented 7th
-    c1:7sus4     % dominant 7sus4
-    c1:maj7      % major 7th
-    c1:m7        % minor 7th
-    c1:m7.5-     % half-diminished
-    c1:dim7      % diminished 7th
-
-    % 9th and extended chords
-    c1:9         % dominant 9th
-    c1:maj9      % major 9th
-    c1:7.9-      % dominant 7 flat 9
-    c1:7.9+      % dominant 7 sharp 9
-    c1:7.11+     % dominant 7 sharp 11
-    c1:9.11+     % dominant 9 sharp 11
-  }
-  \new Staff {
-    \override Staff.TimeSignature.stencil = ##f
-    \repeat unfold 20 { s1 \bar "||" }
-  }
+<<
+  \new ChordNames \transpose c bes \theChords
+  \new Staff \transpose c bes, \theChords
 >>
