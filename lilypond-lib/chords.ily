@@ -38,7 +38,7 @@
 % major chord "maj" superscript
 #(define-markup-command (acMaj layout props extension) (string?)
   (interpret-markup layout props
-    (markup #:raise 0.7 #:fontsize -1.2 "maj" extension)))
+    (markup "^" extension)))
 
 % flat symbol with extension number
 #(define-markup-command (acFlat layout props extension) (string?)
