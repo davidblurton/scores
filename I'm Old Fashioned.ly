@@ -4,11 +4,12 @@
 \header {
   title = "I'm Old Fashioned"
   subtitle = "As played by Barry Harris on \"Solo\""
-  tagline = ""
-  composer = "Transcribed by David Blurton"
+  tagline = "Transcribed by David Blurton"
+  composer = "Mercer / Kern"
 }
 
 \layout {
+  
 \context {
     \Voice
     \consists "Horizontal_bracket_engraver"
@@ -17,18 +18,19 @@
 }
 
 \paper {
-  %markup-system-spacing.basic-distance = #25
+  system-system-spacing.basic-distance = #15
 }
 
 <<
   \chords {
-    f1 | g2:m7 c:7 | f1 | g2:m7 c:7 |
+    \set chordChanges = ##t
+    f1 | g2:m7 c:7 | f1:maj7 | g2:m7 c:7 |
     f1 | f1 | e:m7 | a:7 |
     d1:m7 | g:7 | d:m7 | g:7 |
     g1:m7 | des:7.11+ | g:m7 | c:7 |
-    f1 | g2:m7 c:7 | f1 | b2:m7 e:7 |
+    f1 | g2:m7 c:7 | f1:maj7 | b2:m7 e:7 |
     a2:maj7 b:m7 | cis:m7 d:7 | e:7 fis:dim | g:m7 c:7
-    f1 | g2:m7 c:7 | f1 | g2:m7 c:7 |
+    f1 | g2:m7 c:7 | f1:maj7 | g2:m7 c:7 |
     c2:m7 f:7 | bes:maj7 bes:m6 | f1 | b2:m7.5- bes:m6 |
     a2:m7 d:m7 | g:m7 c:7 | f
   }
@@ -69,7 +71,7 @@
     a2. g4 | \break
     c2. c,4 |
     c4 c2 c4 |
-    f1 |
+    f1~ |
     f2 r2 | \fine
     
   }
