@@ -67,6 +67,7 @@ JazzChordsList = {
   % added tone
   <c d>-\markup { #(string-append "(" acAdd "2" ")" ) }                    % 2
   <c e g a>-\markup { #"6" }                                     % 6
+  <c ees g a>-\markup { \acMin #"6" }                                     % m6
 
   % 7th chords
   <c e g bes>-\markup { #"7" }                                   % 7

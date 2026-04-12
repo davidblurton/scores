@@ -18,24 +18,24 @@
 
 <<
   \chords {
-     des4 g:7 ges:maj7 ees:m7.5- | 
-     f4:m7 b:7 bes2:7.9- 
+     c4 ges:7 f:maj7 f:m6 | 
+     e4:m7 bes:7 a2:7.9- 
   }
   
 
   \new PianoStaff <<
-    
-  \new Staff \relative c' { 
-    \time 4/4 \key des \major
+  
+  \new Staff \relative c { 
+    \time 4/4 \key c \major
 
-    <f, aes des>4 <d' e f a> <aes' bes des> <a, des ees ges> | 
-    <aes c ees f> <cis dis eis gis> <b ges'> <d ges ces>
+    <e g c>4 <bes' c ees as> <g' a c> <aes, c f> | 
+    <g b e> <c d e g> <bes f'> <des f bes>
   }
   \new Staff \relative { 
-    \clef bass \time 4/4 \key des \major
+    \clef bass \time 4/4 \key c \major
     
-    <des, aes' des> <g f'> <ges f'> <ees' ges> |
-    <f, ees'> <b a'> <bes aes'> <aes'>
+    <c, g' c> <ges' fes'> <f e'> <d'> |
+    <e, d'> <bes' aes'> <a g'> <g'>
   }
 >>
 >>
